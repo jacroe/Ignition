@@ -1,0 +1,9 @@
+# Files to ignore because of end-use
+ignition.php
+
+# Files to ignore because of development
+ignition.sublime-project
+ignition.sublime-workspace
+
+# Files to ignore because of licensing
+lib/smarty/plugins/modifier.markdown.php
