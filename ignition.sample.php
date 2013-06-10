@@ -6,7 +6,7 @@ define("IGN_TITLE", "An Ignition Blog");
 define("IGN_SUBTITLE", "A flat-file blogging system");
 define("IGN_TIMEZONE", "America/Chicago");
 define("IGN_URL", "http://localhost/ignition/");
-define("IGN_PATH", "/home/jacob/www/ignition-v2/");
+define("IGN_PATH", "/home/jacob/www/ignition/");
 
 foreach (glob(IGN_PATH."modules/*.php") as $includes) require_once($includes);
 require_once(IGN_PATH."lib/smarty/Smarty.class.php");

@@ -1,5 +1,6 @@
 # Files to ignore because of end-use
 ignition.php
+inc/templates_c/
 
 # Files to ignore because of development
 ignition.sublime-project
