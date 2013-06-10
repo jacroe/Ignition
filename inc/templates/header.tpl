@@ -15,7 +15,7 @@
 <h1>{{$post_title}}</h1>
 {{else}}<h1>{{$blog_title}}</h1>
 {{/if}}
-{{if $post_author}}
+{{if $post_type == "post"}}
 <p class=byline>{{$post_author}} <span style="color:#000;">|</span> <a href="?id={{$post_slug}}" title="{{$post_date}}">{{$post_timeAgo}} ago</a> <span style="color:#000;">|</span> {{$post_loc}}</p>
 {{/if}}
 </header>
