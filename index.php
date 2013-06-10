@@ -33,6 +33,7 @@ elseif($_GET["id"])
 		$smarty->assign("post_date", $post->date);
 		$smarty->assign("post_timeAgo", ign_timeAgo($post->date));
 		$smarty->assign("post_loc", $post->loc);
+		$smarty->assign("post_excerpt", $post->excerpt);
 		$smarty->assign("post_article", $post->article);
 		$smarty->assign("post_type", $post->type);
 		$smarty->display("post.tpl");
@@ -42,7 +43,7 @@ elseif($_GET["id"])
 }
 else
 {
-	$posts = ign_posts_get();
+	$posts = ign_posts_get(-1);
 	$smarty->assign("posts", $posts);
 	$smarty->display("index.tpl");
 }

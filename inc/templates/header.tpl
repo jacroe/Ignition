@@ -6,8 +6,11 @@
 <link href='http://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Cardo' rel='stylesheet' type='text/css'>
-<link href=inc/css/styles.css rel=stylesheet type=text/css />
+<link href=inc/css/default.css rel=stylesheet type=text/css />
 <link rel=alternate type=application/rss+xml title="RSS Feed" href="?p=feed" />
+{{if $headerCode}}
+{{$headerCode}}
+{{/if}}
 </head>
 <body>
 <header>
