@@ -1,13 +1,13 @@
 {{include file="header.tpl"}}
-<article>
 {{if $posts}}
+<article>
+<p>
 {{foreach $posts as $post}}
-<h1><a href="?id={{$post.slug}}">{{$post.title}}</a></h1>
-<p class=byline>{{$post.author}} <span style="color:#000;">|</span> <a title="{{$post.date}}">{{$post.timeAgo}}</a> <span style="color:#000;">|</span> {{$post.loc}}</p>
-{{$post.article|markdown}}
+<img src="inc/images/{{$post.type}}.png" /> <strong><a href="?id={{$post.slug}}">{{$post.title}}</a></strong> &ndash; {{$post.timeAgo}}<br />
 {{/foreach}}
+</p>
+</article>
 {{else}}
 {{include file="empty.tpl"}}
 {{/if}}
-</article>
 {{include file="footer.tpl"}}
