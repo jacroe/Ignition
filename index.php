@@ -1,8 +1,7 @@
 <?php
-require_once("ignition.sample.php");
-$smarty->assign("blog_title", IGN_TITLE);
-$smarty->assign("blog_subtitle", IGN_SUBTITLE);
-$smarty->assign("blog_url", IGN_URL);
+require_once("ignition.php");
+$blog = array("title"=>IGN_TITLE, "subtitle"=>IGN_SUBTITLE, "url"=>IGN_URL);
+$smarty->assign("blog", $blog);
 
 if($_GET["p"])
 {
@@ -15,9 +14,8 @@ if($_GET["p"])
 	}
 	elseif($page = ign_pages_getBySlug($_GET["p"]))
 	{
-		$smarty->assign("post_title", $page->title);
-		$smarty->assign("post_article", $page->article);
-		$smarty->assign("post_type", "page");
+		$smarty->assign("page", $page);
+		$smarty->assign("type", "page");
 		$smarty->display("page.tpl");
 	}
 	else
@@ -27,15 +25,8 @@ elseif($_GET["id"])
 {
 	if($post = ign_posts_getBySlug($_GET["id"]))
 	{
-		$smarty->assign("post_title", $post->title);
-		$smarty->assign("post_author", $post->author);
-		$smarty->assign("post_slug", $_GET["id"]);
-		$smarty->assign("post_date", $post->date);
-		$smarty->assign("post_timeAgo", ign_timeAgo($post->date));
-		$smarty->assign("post_loc", $post->loc);
-		$smarty->assign("post_excerpt", $post->excerpt);
-		$smarty->assign("post_article", $post->article);
-		$smarty->assign("post_type", $post->type);
+		$post["date"] = ign_html5Time($post["date"]);
+		$smarty->assign("post", $post);
 		$smarty->display("post.tpl");
 	}
 	else

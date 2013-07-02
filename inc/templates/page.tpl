@@ -1,5 +1,8 @@
-{{include file="header.tpl"}}
+{{include file="header.tpl" title=$page.title}}
 <article>
-{{$post_article|markdown}}
+<header>
+<h1>{{$page.title}}</h1>
+</header>
+{{$page.article|markdown}}
 </article>
 {{include file="footer.tpl"}}

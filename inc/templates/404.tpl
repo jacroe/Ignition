@@ -1,6 +1,8 @@
-{{include file="header.tpl" post_title="404 - Not Found"}}
+{{include file="header.tpl" title="404 - Not Found"}}
 <article>
+<header>
 <h1>BURMA!!!</h1>
+</header>
 <p>Sorry, I panicked. Anyways, it appears that you were looking for something that doesn't exist. I know you may think you're perfect and everything but everyone make mistakes. One of the following most likely happened:</p>
 <ul>
 <li><strong>The page in question was deleted.</strong> This could be by accident or on purpose for a variety of reasons (stupidity, embarrassment, etc). This was not your fault.</li>

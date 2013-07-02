@@ -10,5 +10,12 @@ function ign_timeAgo($date)
 	elseif ($diff->d) $timeLeft = "{$diff->d} days {$diff->h} hours";
 	elseif ($diff->h) $timeLeft = "{$diff->h} hours {$diff->i} minutes";
 	else $timeLeft = "{$diff->i} minutes {$diff->s} seconds";
-	return $timeLeft;
+	if(time() < strtotime($date))
+		return $timeLeft." in the future";
+	else
+		return $timeLeft." ago";
+}
+function ign_html5Time($date)
+{
+	return date("Y-m-d H:i:sO", strtotime($date));
 }
