@@ -3,7 +3,7 @@
 <article>
 <p>
 {{foreach $posts as $post}}
-<img src="inc/images/{{$post.type}}.png" alt="{{$post.type|ucfirst}}"/> <strong><a href="?id={{$post.slug}}">{{$post.title}}</a></strong> &ndash; {{$post.timeAgo}}<br />
+<strong><a href="?id={{$post.slug}}" class="bloglink link-{{$post.type}}">{{$post.title}}</a></strong> &ndash; {{$post.timeAgo}}<br />
 {{/foreach}}
 </p>
 </article>

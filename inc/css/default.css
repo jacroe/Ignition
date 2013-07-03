@@ -23,4 +23,8 @@ article img.floatLeft {margin:10px; float:left;}
 article .footnotes li {font-size: .7em;}
 article .footnotes p {padding-bottom: 0px;}
 
+a.bloglink{background-image:url('../images/post.png'); background-repeat:no-repeat; background-position:0 center; padding:0 0 0 18px;}
+a.link-post{background-image:url('../images/post.png')}
+a.link-photo{background-image:url('../images/photo.png')}
+
 aside {width:40%; float:right;}
