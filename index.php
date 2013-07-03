@@ -19,7 +19,10 @@ if($_GET["p"])
 		$smarty->display("page.tpl");
 	}
 	else
+	{
+		header('HTTP/1.0 404 Not Found');
 		$smarty->display("404.tpl");
+	}
 }
 elseif($_GET["id"])
 {
@@ -30,7 +33,10 @@ elseif($_GET["id"])
 		$smarty->display("post.tpl");
 	}
 	else
+	{
+		header('HTTP/1.0 404 Not Found');
 		$smarty->display("404.tpl");
+	}
 }
 else
 {
