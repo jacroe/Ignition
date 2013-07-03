@@ -10,6 +10,13 @@ function ign_timeAgo($date)
 	elseif ($diff->d) $timeLeft = "{$diff->d} days {$diff->h} hours";
 	elseif ($diff->h) $timeLeft = "{$diff->h} hours {$diff->i} minutes";
 	else $timeLeft = "{$diff->i} minutes {$diff->s} seconds";
+
+	if ($diff->y == 1) $timeLeft = str_replace("years", "year", $timeLeft);
+	if ($diff->m == 1) $timeLeft = str_replace("months", "month", $timeLeft);
+	if ($diff->d == 1) $timeLeft = str_replace("days", "day", $timeLeft);
+	if ($diff->h == 1) $timeLeft = str_replace("hours", "hour", $timeLeft);
+	if ($diff->i == 1) $timeLeft = str_replace("minutes", "minute", $timeLeft);
+	if ($diff->s == 1) $timeLeft = str_replace("seconds", "second", $timeLeft);
 	if(time() < strtotime($date))
 		return $timeLeft." in the future";
 	else
