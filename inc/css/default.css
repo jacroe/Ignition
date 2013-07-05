@@ -23,8 +23,13 @@ article img.floatLeft {margin:10px; float:left;}
 article .footnotes li {font-size: .7em;}
 article .footnotes p {padding-bottom: 0px;}
 
-a.bloglink{background-image:url('../images/post.png'); background-repeat:no-repeat; background-position:0 center; padding:0 0 0 18px;}
-a.link-post{background-image:url('../images/post.png')}
-a.link-photo{background-image:url('../images/photo.png')}
+a.bloglink, a.extlink { background-repeat:no-repeat; background-position:0 center; padding:0 0 0 18px;}
+
+a.bloglink {background-image:url('../images/post.png');}
+a.link-post {background-image:url('../images/post.png')}
+a.link-photo {background-image:url('../images/photo.png')}
+
+a.extlink {background-image:url()}
+a.ext-youtube {background-image:url("https://s.ytimg.com/yts/img/favicon-vfldLzJxy.ico")}
 
 aside {width:40%; float:right;}

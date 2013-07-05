@@ -7,9 +7,12 @@
 <link href="http://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet" />
 <link href="http://fonts.googleapis.com/css?family=Cardo" rel="stylesheet" />
 <link href=inc/css/default.css rel=stylesheet />
+
 <link rel=alternate type=application/rss+xml title="RSS Feed" href="?p=feed" />
+
 {{if $headerCode}}
 {{$headerCode}}
+
 {{/if}}
 </head>
 <body>
