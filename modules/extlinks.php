@@ -21,6 +21,11 @@ function ign_extlinks_footer()
 			$(this).addClass("extlink ext-twitter");
 			$(this).attr("target", "_BLANK");
 		}
+		if(link.match("wolframalpha.com"))
+		{
+			$(this).addClass("extlink ext-wolfram");
+			$(this).attr("target", "_BLANK");
+		}
 
 		if(link.match(".pdf"))
 			$(this).addClass("filelink file-pdf");

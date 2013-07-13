@@ -12,7 +12,8 @@ article header h1 {font-family: 'EB Garamond', serif; font-size: 3em; font-weigh
 article header p {color: #008989; font-family: Arial, sans; font-size: .6em; font-weight: 800; text-transform: uppercase;}
 
 article h1 {font-family: 'EB Garamond', serif; font-size: 1.7em;}
-article p, blockquote {padding-bottom: 20px; font-family: Cardo, serif; line-height: 30px;}
+article p, blockquote, li {font-family: Cardo, serif; line-height: 30px;}
+article p, blockquote {padding-bottom: 20px;}
 article li {margin-left: 20px;}
 article blockquote {font-style: italic;}
 article aside.quote {width: 30%; float: right; color: #d54e21; font-family: Cardo, serif; font-size: 1.4em; font-weight: 800; font-style: italic; line-height: 40px;}
@@ -21,19 +22,22 @@ article aside.quote:after {content: '\201D';}
 article img.floatRight {margin:10px; float:right;}
 article img.floatLeft {margin:10px; float:left;}
 article .footnotes li {font-size: .7em;}
-article .footnotes p {padding-bottom: 0px;}
+article li p {padding-bottom: 0px;}
 
 a.bloglink, a.extlink, a.filelink {background-repeat:no-repeat; background-position:0 center; padding:0 0 0 18px;}
 
 a.bloglink {background-image:url('../images/icons/post.png');}
-a.link-post {background-image:url('../images/icons/post.png')}
-a.link-photo {background-image:url('../images/icons/photo.png')}
-a.link-audio {background-image:url('../images/icons/');}
+a.link-post {background-image:url('../images/icons/post.png');}
+a.link-photo {background-image:url('../images/icons/photo.png');}
+a.link-audio {background-image:url('../images/icons/music.png');}
+a.link-video {background-image:url('../images/icons/video.png');}
+a.link-link {background-image:url('../images/icons/link.png');}
 
 a.extlink {background-image:url()}
 a.ext-youtube {background-image:url("https://s.ytimg.com/yts/img/favicon-vfldLzJxy.ico")}
 a.ext-wikipedia {background-image:url("../images/icons/wp.png");}
 a.ext-twitter {background-image:url("https://abs.twimg.com/favicons/favicon.ico");}
+a.ext-wolfram {background-image:url("http://www.wolframcdn.com/alphaFav.ico");}
 
 a.filelink {background-image:url();}
 a.file-pdf {background-image:url("../images/icons/pdf.png");}
