@@ -23,13 +23,19 @@ article img.floatLeft {margin:10px; float:left;}
 article .footnotes li {font-size: .7em;}
 article .footnotes p {padding-bottom: 0px;}
 
-a.bloglink, a.extlink { background-repeat:no-repeat; background-position:0 center; padding:0 0 0 18px;}
+a.bloglink, a.extlink, a.filelink {background-repeat:no-repeat; background-position:0 center; padding:0 0 0 18px;}
 
-a.bloglink {background-image:url('../images/post.png');}
-a.link-post {background-image:url('../images/post.png')}
-a.link-photo {background-image:url('../images/photo.png')}
+a.bloglink {background-image:url('../images/icons/post.png');}
+a.link-post {background-image:url('../images/icons/post.png')}
+a.link-photo {background-image:url('../images/icons/photo.png')}
+a.link-audio {background-image:url('../images/icons/');}
 
 a.extlink {background-image:url()}
 a.ext-youtube {background-image:url("https://s.ytimg.com/yts/img/favicon-vfldLzJxy.ico")}
+a.ext-wikipedia {background-image:url("../images/icons/wp.png");}
+a.ext-twitter {background-image:url("https://abs.twimg.com/favicons/favicon.ico");}
+
+a.filelink {background-image:url();}
+a.file-pdf {background-image:url("../images/icons/pdf.png");}
 
 aside {width:40%; float:right;}
