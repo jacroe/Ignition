@@ -8,6 +8,16 @@ define("IGN_TIMEZONE", "America/Chicago");
 define("IGN_URL", "http://localhost/ignition/");
 define("IGN_PATH", "/home/jacob/www/ignition/");
 
+define("USER_NAME", "Alice");
+define("USER_EMAIL", "alice@example.com");
+
+/* MODULE: Email */
+define("SMTP_SERVER", "mail.bob.com");
+define("SMTP_PORT", 465);
+define("SMTP_USER", "bob");
+define("SMTP_PASS", "bobandalice");
+define("SMTP_FROM", "alice@bob.com");
+
 foreach (glob(IGN_PATH."modules/*.php") as $includes)
 {
 	$module = str_replace(IGN_PATH."modules/", "", str_replace(".php", "", $includes));
