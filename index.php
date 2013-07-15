@@ -8,7 +8,7 @@ if($_GET["p"])
 	if($_GET["p"] == "feed")
 	{
 		header('Content-type: application/rss+xml');
-		$posts = ign_posts_get();
+		$posts = ign_posts_get(10);
 		$smarty->assign("posts", $posts);
 		$smarty->display("rss.tpl");
 	}
@@ -40,7 +40,7 @@ elseif($_GET["id"])
 }
 else
 {
-	$posts = ign_posts_get(-1);
+	$posts = ign_posts_get();
 	$smarty->assign("posts", $posts);
 	$smarty->display("index.tpl");
 }
