@@ -9,7 +9,7 @@ header h1#title a {color:#fff;}
 
 article header {margin-bottom: 0px;}
 article header h1 {font-family: 'EB Garamond', serif; font-size: 3em; font-weight: 800;}
-article header p {color: #008989; font-family: Arial, sans; font-size: .6em; font-weight: 800; text-transform: uppercase;}
+article header p {color: #008989; font-family: Arial, sans-serif; font-size: .6em; font-weight: 800; text-transform: uppercase;}
 
 article h1 {font-family: 'EB Garamond', serif; font-size: 1.7em;}
 article p, blockquote, li {font-family: Cardo, serif; line-height: 30px;}
