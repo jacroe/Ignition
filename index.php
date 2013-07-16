@@ -40,7 +40,7 @@ elseif($_GET["id"])
 }
 else
 {
-	$posts = ign_posts_get();
+	$posts = ign_posts_get(5);
 	$smarty->assign("posts", $posts);
 	$smarty->display("index.tpl");
 }

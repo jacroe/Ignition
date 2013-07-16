@@ -1,8 +1,8 @@
 * {margin: 0; padding: 0;}
-body {width:70%; margin: auto; background-image:url('creampaper.png'); background-color: #eee; font-size:1.4em;}
+body {width:70%; margin: auto; margin-top: 60px; background-image:url('creampaper.png'); background-color: #eee; font-size:1.4em;}
 a, a:hover {color: #000; text-decoration: none; border-bottom: 1px dotted #000;}
 
-header {margin-top: 60px; margin-bottom:40px;}
+header {margin-bottom:40px;}
 header h1 {font-family: 'EB Garamond', serif; font-size: 3em; font-weight: 800;}
 header h1#title {padding: 5px; position: absolute; top: 10px; left: 15px; color:#fff; background-color:#000; font-size: 1em;}
 header h1#title a {color:#fff;}
@@ -13,16 +13,19 @@ article header p {color: #008989; font-family: Arial, sans-serif; font-size: .6e
 
 article h1 {font-family: 'EB Garamond', serif; font-size: 1.7em;}
 article p, blockquote, li {font-family: Cardo, serif; line-height: 30px;}
-article p, blockquote {padding-bottom: 20px;}
+article p, blockquote {margin-bottom: 20px;}
 article li {margin-left: 20px;}
-article blockquote {font-style: italic;}
+article blockquote {margin-left: 15px; font-style: italic;}
 article aside.quote {width: 30%; float: right; color: #d54e21; font-family: Cardo, serif; font-size: 1.4em; font-weight: 800; font-style: italic; line-height: 40px;}
 article aside.quote:before {content: '\201C';}
 article aside.quote:after {content: '\201D';}
 article img.floatRight {margin:10px; float:right;}
 article img.floatLeft {margin:10px; float:left;}
 article .footnotes li {font-size: .7em;}
-article li p {padding-bottom: 0px;}
+article li p {margin-bottom: 0px;}
+
+article.index header h1 {font-size:2em;}
+article.type-aside {border-left: 4px solid #FF0000; padding-left: 5px;}
 
 a.bloglink, a.extlink, a.filelink {background-repeat:no-repeat; background-position:0 center; padding:0 0 0 18px;}
 
