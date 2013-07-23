@@ -28,7 +28,7 @@ $('a').each(function()
 	if(link.match(".pdf"))
 		$(this).addClass("filelink file-pdf");
 
-	$('a:external').attr("target", "_BLANK");
+	$('a:external').attr("target", "_blank");
 });
 </script>
 
