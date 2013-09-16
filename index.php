@@ -1,7 +1,9 @@
 <?php
 require_once("ignition.php");
 $blog = array("title"=>IGN_TITLE, "subtitle"=>IGN_SUBTITLE, "url"=>IGN_URL);
+$user = array("name"=>USER_NAME);
 $smarty->assign("blog", $blog);
+$smarty->assign("user", $user);
 
 if($_GET["p"])
 {
@@ -11,6 +13,12 @@ if($_GET["p"])
 		$posts = ign_posts_get(10);
 		$smarty->assign("posts", $posts);
 		$smarty->display("rss.tpl");
+	}
+	elseif($_GET["p"] == "archive")
+	{
+		$posts = ign_posts_get(-1);
+		$smarty->assign("posts", $posts);
+		$smarty->display("archive.tpl");
 	}
 	elseif($page = ign_pages_getBySlug($_GET["p"]))
 	{
