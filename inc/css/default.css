@@ -16,7 +16,7 @@ article header p {color: #008989; font-family: Arial, sans-serif; font-size: .6e
 article h1 {font-family: 'EB Garamond', serif; font-size: 1.7em;}
 article h2 {font-family: 'EB Garamond', serif; font-size: 1.3em;}
 article p, blockquote, li {font-family: Cardo, serif; line-height: 30px;}
-article p, blockquote {margin-bottom: 20px;}
+article p, blockquote {margin-top: 10px; margin-bottom: 20px;}
 article li {margin-left: 20px;}
 article blockquote {margin-left: 20px; font-style: italic;}
 article aside.quote {width: 30%; float: right; color: #d54e21; font-family: Cardo, serif; font-size: 1.4em; font-weight: 800; font-style: italic; line-height: 40px;}
