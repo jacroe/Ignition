@@ -5,18 +5,18 @@ function ign_timeAgo($date)
 	$now = new DateTime();
 	$ref = new DateTime($date);
 	$diff = $now->diff($ref);
-	if ($diff->y) $timeLeft = "{$diff->y} years, {$diff->m} months, {$diff->d} days";
-	elseif ($diff->m) $timeLeft = "{$diff->m} months {$diff->d} days";
-	elseif ($diff->d) $timeLeft = "{$diff->d} days {$diff->h} hours";
-	elseif ($diff->h) $timeLeft = "{$diff->h} hours {$diff->i} minutes";
-	else $timeLeft = "{$diff->i} minutes {$diff->s} seconds";
+	if ($diff->y) $timeLeft = "{$diff->y} ".LANG_YEARS.", {$diff->m} ".LANG_MONTHS.", {$diff->d} ".LANG_DAYS;
+	elseif ($diff->m) $timeLeft = "{$diff->m} ".LANG_MONTHS." {$diff->d} ".LANG_DAYS;
+	elseif ($diff->d) $timeLeft = "{$diff->d} ".LANG_DAYS." {$diff->h} ".LANG_HOURS;
+	elseif ($diff->h) $timeLeft = "{$diff->h} ".LANG_HOURS." {$diff->i} ".LANG_MINUTES;
+	else $timeLeft = "{$diff->i} ".LANG_MINUTES." {$diff->s} ".LANG_SECONDS;
 
-	if ($diff->y == 1) $timeLeft = str_replace("years", "year", $timeLeft);
-	if ($diff->m == 1) $timeLeft = str_replace("months", "month", $timeLeft);
-	if ($diff->d == 1) $timeLeft = str_replace("days", "day", $timeLeft);
-	if ($diff->h == 1) $timeLeft = str_replace("hours", "hour", $timeLeft);
-	if ($diff->i == 1) $timeLeft = str_replace("minutes", "minute", $timeLeft);
-	if ($diff->s == 1) $timeLeft = str_replace("seconds", "second", $timeLeft);
+	if ($diff->y == 1) $timeLeft = str_replace(LANG_YEARS, LANG_YEAR, $timeLeft);
+	if ($diff->m == 1) $timeLeft = str_replace(LANG_MONTHS, LANG_MONTH, $timeLeft);
+	if ($diff->d == 1) $timeLeft = str_replace(LANG_DAYS, LANG_DAY, $timeLeft);
+	if ($diff->h == 1) $timeLeft = str_replace(LANG_HOURS, LANG_HOUR, $timeLeft);
+	if ($diff->i == 1) $timeLeft = str_replace(LANG_MINUTES, LANG_MINUTE, $timeLeft);
+	if ($diff->s == 1) $timeLeft = str_replace(LANG_SECONDS, LANG_SECOND, $timeLeft);
 	if(time() < strtotime($date))
 		return $timeLeft." in the future";
 	else

@@ -7,6 +7,7 @@ define("IGN_SUBTITLE", "A flat-file blogging system");
 define("IGN_TIMEZONE", "America/Chicago");
 define("IGN_URL", "http://localhost/ignition/");
 define("IGN_PATH", "/home/jacob/www/ignition/");
+define("LANG", "en");
 
 define("USER_NAME", "Alice");
 define("USER_EMAIL", "alice@example.com");
@@ -17,6 +18,10 @@ define("SMTP_PORT", 465);
 define("SMTP_USER", "bob");
 define("SMTP_PASS", "bobandalice");
 define("SMTP_FROM", "alice@bob.com");
+
+date_default_timezone_set(IGN_TIMEZONE);
+
+require_once(IGN_PATH."inc/lang/".LANG.".php");
 
 foreach (glob(IGN_PATH."modules/*.php") as $includes)
 {
