@@ -45,11 +45,10 @@ function ign_posts_publish($title, $author, $publishDate, $loc, $excerpt, $artic
 {
 	$jsonNewPost = array("title"=>$title, "author"=>$author, "loc"=>$loc, "excerpt"=>$excerpt, "article"=>$article, "type"=>$type, "tags"=>$tags, "link"=>$link, "photo"=>$photo);
 	$strSlug = strtolower(str_replace(array(" ", ".", ",", "!", "\"", "'"), array("-", "", "", "", "", ""), $title));
-	if($publishDate == "now")
+	if(time() >= strtotime($publishDate))
 	{
-		$now = time();
-		$jsonNewPost["date"] = date("r", $now);
-		$strSlug = date("Y-m-d-Hi_", $now).$strSlug;
+		$jsonNewPost["date"] = date("r", strtotime($publishDate));
+		$strSlug = date("Y-m-d-Hi_", strtotime($publishDate)).$strSlug;
 		file_put_contents(IGN_PATH."data/posts/$strSlug.json", json_format(json_encode($jsonNewPost)));
 		ign_action_run("publish-post", array($strSlug));
 	}
