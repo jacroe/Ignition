@@ -4,9 +4,5 @@ require_once("ignition.php");
 if(!$_POST["payload"])
 die("YOU SHALL NOT PASS");
 $jsonDraft = json_decode($_POST["payload"], true);
-$jsonNewPost = array("author"=>USER_NAME, "date"=>date("r", strtotime($jsonDraft["updated_at"])), "loc"=>"Hattiesburg, MS", "title"=>$jsonDraft["name"], "excerpt"=>"", "type"=>"post", "article"=>$jsonDraft["content"]);
-$strSlug = strtolower(str_replace(array(" ", ".", ",", "!", "\"", "'"), array("-", "", "", "", "", ""), $jsonDraft["name"]));
-$strSlug = date("Y-m-d-Hi_", strtotime($jsonDraft["updated_at"])).$strSlug;
-
-file_put_contents(IGN_PATH."data/posts/$strSlug.json", json_format(json_encode($jsonNewPost)));
+$strSlug = ign_posts_publish($jsonDraft["name"], USER_NAME, date("r", strtotime($jsonDraft["updated_at"])), "Hattiesburg, MS", "", $jsonDraft["content"])
 header("Location: ".IGN_URL."?id=$strSlug");

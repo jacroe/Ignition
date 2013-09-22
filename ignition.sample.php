@@ -23,23 +23,16 @@ date_default_timezone_set(IGN_TIMEZONE);
 
 require_once(IGN_PATH."inc/lang/".LANG.".php");
 
-foreach (glob(IGN_PATH."modules/*.php") as $includes)
-{
-	$module = str_replace(IGN_PATH."modules/", "", str_replace(".php", "", $includes));
-	require_once(IGN_PATH."modules/$module.php");
+foreach (glob(IGN_PATH."modules/_*.php") as $includes) require_once $includes;
+foreach (glob(IGN_PATH."modules/*.php") as $includes) require_once $includes;
+foreach (glob(IGN_PATH."plugins/*.php") as $includes) require_once $includes;
+ign_action_run("init");
 
-	if(function_exists("ign_{$module}_header"))
-	{
-		$header .= call_user_func("ign_{$module}_header");
-	}
-	if(function_exists("ign_{$module}_footer"))
-	{
-		$footer .= call_user_func("ign_{$module}_footer");
-	}
-}
 require_once(IGN_PATH."lib/smarty/Smarty.class.php");
 $smarty = new Smarty;
 $smarty->left_delimiter = '{{';
 $smarty->right_delimiter = '}}';
 $smarty->setTemplateDir(IGN_PATH."inc/templates/");
 $smarty->setCompileDir(IGN_PATH."inc/templates_c/");
+$smarty->assign("headerCode", ign_action_run("display-header"));
+$smarty->assign("footerCode", ign_action_run("display-footer"));

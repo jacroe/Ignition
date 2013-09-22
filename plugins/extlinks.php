@@ -1,5 +1,5 @@
 <?php
-function ign_extlinks_footer()
+function ign_extlinks()
 {
 	return <<<RETURN
 <script type="text/javascript">
@@ -34,3 +34,5 @@ $('a').each(function()
 
 RETURN;
 }
+
+ign_action_add("display-footer", "ign_extlinks");

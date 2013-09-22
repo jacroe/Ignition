@@ -2,7 +2,7 @@
 
 define("GOOGLEANALYTICS_ID", "");
 
-function ign_googleanalytics_footer()
+function ign_googleanalytics()
 {
 	$id = GOOGLEANALYTICS_ID;
 	$analytics = <<<CODE
@@ -19,3 +19,5 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 CODE;
 	return $analytics;
 }
+
+ign_action_add("display-footer", "ign_googleanalytics");
