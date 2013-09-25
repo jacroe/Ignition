@@ -11,7 +11,8 @@ function ign_email_send($user, $email, $subject, $body, $attachment = NULL)
 	  ->setTo(array($email => $user))
 	  ->setSubject($subject)
 	  ->setBody($body.'<br /><br />
-Love, Ignition', 'text/html');
+Love,<br />
+'.IGN_TITLE, 'text/html');
 	if ($attachment) $message->attach(Swift_Attachment::fromPath($attachment));
 	$result = $mailer->send($message);
 }
