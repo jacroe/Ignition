@@ -5,7 +5,7 @@
 <article class="index type-{{$post.type}}">
 <header>
 <h1><a href="?id={{$post.slug}}">{{$post.title}}</a></h1>
-<p>{{$post.author}} <span style="color:#000;">|</span> <time datetime="{{$post.date}}">{{$post.timeAgo}}</time> <span style="color:#000;">|</span> {{$post.loc}}</p>
+<p>{{$post.author}} <span style="color:#000;">|</span> <time datetime="{{$post.html5Date}}">{{$post.timeAgo}}</time> <span style="color:#000;">|</span> {{$post.loc}}</p>
 </header>
 {{$post.article|markdown}}</article>
 {{else if $post.type=="link"}}

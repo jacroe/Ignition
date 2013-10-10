@@ -38,7 +38,7 @@ function ign_posts_getBySlug($slug)
 
 function ign_posts_getPostData($jsonPost, $slug)
 {
-	return array("title"=>$jsonPost->title, "author"=>$jsonPost->author, "slug"=>$slug, "date"=>$jsonPost->date, "timeAgo"=>ign_timeAgo($jsonPost->date), "loc"=>$jsonPost->loc, "excerpt"=>$jsonPost->excerpt, "article"=>$jsonPost->article, "type"=>$jsonPost->type, "tags"=>$jsonPost->tags, "link"=>$jsonPost->link, "photo"=>$jsonPost->photo);
+	return array("title"=>$jsonPost->title, "author"=>$jsonPost->author, "slug"=>$slug, "date"=>$jsonPost->date, "html5Date"=>ign_html5Time($jsonPost->date), "timeAgo"=>ign_timeAgo($jsonPost->date), "loc"=>$jsonPost->loc, "excerpt"=>$jsonPost->excerpt, "article"=>$jsonPost->article, "type"=>$jsonPost->type, "tags"=>$jsonPost->tags, "link"=>$jsonPost->link, "photo"=>$jsonPost->photo);
 }
 
 function ign_posts_publish($title, $author, $publishDate, $loc, $excerpt, $article, $type = "post", $tags = "", $link = "", $photo = "")
