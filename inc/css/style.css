@@ -548,7 +548,9 @@ article .title a:hover {
 }
 article .post-meta {
   margin-bottom: 40px;
-  font-size: 14px;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #787878;
 }
 article .post-meta a {
   color: #888888;
