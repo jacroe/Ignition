@@ -5,9 +5,11 @@
 						<h1 class="title">Archive</h1>
 						
 						<div class="the-content">
-							{{foreach $posts as $post}}
-<a href="?id={{$post.slug}}">{{$post.title}}</a> &mdash; Posted {{$post.date|date_format}}<br />
+							<p>
+{{foreach $posts as $post}}
+							<a href="?id={{$post.slug}}">{{$post.title}}</a> &mdash; Posted {{$post.date|date_format}}<br />
 {{/foreach}}
+							</p>
 						</div><!-- the-content -->
 						
 					</article>
