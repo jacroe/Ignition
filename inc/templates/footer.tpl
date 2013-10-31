@@ -5,9 +5,8 @@
 
 <footer class="site-footer" role="contentinfo">
 	<div class="site-info container">
-		<a href="http://github.com/jacroe/ignition/" title="Ignition">Proudly powered by Ignition</a>
-		<span class="sep"> and </span>
-		<a href="http://lessmade.com/themes/less">LESS</a> by <a href="http://jarederickson.com">Jared Erickson</a>. Theme adapted by <a href="http://jacroe.com">Jacob Roeland</a>.
+		<a href="http://github.com/jacroe/ignition/" title="Ignition">Ignition</a> +
+		<a href="http://lessmade.com/themes/less">LESS</a>
 	</div><!-- .site-info -->
 </footer><!-- #colophon .site-footer -->
 
