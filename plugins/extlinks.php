@@ -25,6 +25,15 @@ $('a').each(function()
 	if(link.match("wolframalpha.com"))
 		$(this).addClass("extlink ext-wolfram");
 
+	if(link.match("facebook.com"))
+		$(this).addClass("extlink ext-facebook");
+
+	if(link.match("tumblr.com"))
+		$(this).addClass("extlink ext-tumblr");
+
+	if(link.match("github.com"))
+		$(this).addClass("extlink ext-github");
+
 	if(link.match(".pdf"))
 		$(this).addClass("filelink file-pdf");
 
@@ -43,12 +52,15 @@ a.bloglink, a.extlink, a.filelink {background-repeat:no-repeat; background-posit
 
 a.extlink {background-image:url()}
 a.ext-youtube {background-image:url("https://s.ytimg.com/yts/img/favicon-vfldLzJxy.ico")}
-a.ext-wikipedia {background-image:url("../images/icons/wp.png");}
+a.ext-wikipedia {background-image:url("./inc/images/icons/wp.png");}
 a.ext-twitter {background-image:url("https://abs.twimg.com/favicons/favicon.ico");}
 a.ext-wolfram {background-image:url("http://www.wolframcdn.com/alphaFav.ico");}
+a.ext-tumblr {background-image:url("./inc/images/icons/tumblr.png");}
+a.ext-facebook {background-image:url("https://www.facebook.com/favicon.ico");}
+a.ext-github {background-image:url("./inc/images/icons/github.png");}
 
 a.filelink {background-image:url();}
-a.file-pdf {background-image:url("../images/icons/pdf.png");}
+a.file-pdf {background-image:url("./inc/images/icons/pdf.png");}
 </style>
 RETURN;
 }
