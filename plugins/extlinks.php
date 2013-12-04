@@ -65,5 +65,5 @@ a.file-pdf {background-image:url("./inc/images/icons/pdf.png");}
 RETURN;
 }
 
-ign_action_add("display-footer", "ign_extlinks_js");
 ign_action_add("display-header", "ign_extlinks_css");
+ign_action_add("display-footer", "ign_extlinks_js");
