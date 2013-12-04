@@ -1,5 +1,5 @@
 {
 	"title":	"Colophon",
 	"author":	"Jacob",
-	"article":	"Rambling Writings is an [Ignition](http://github.com/jacroe/ignition) blog. Ignition is powered by:\n\n  * [PHP Markdown Classic](http://michelf.ca/projects/php-markdown/classic/)\n  * The [jQuery](http://jquery.com/) Javascript library\n  * The [Smarty](http://smarty.net) templating engine\n  * The [Swift Mailer](http://swiftmailer.org) library\n  * Wordpress theme [LESS](http://lessmade.com/themes/less/) by [Jared Erickson](http://jarederickson.com/) and adapted by [Jacob Roeland](http://jacroe.com)"
+	"article":	"Rambling Writings is an [Ignition](http://github.com/jacroe/ignition) blog. Ignition is powered by:\n\n  * [Parsedown](http://parsedown.org/), the better Markdown parser for PHP\n  * The [jQuery](http://jquery.com/) Javascript library\n  * [Prism](http://prismjs.com/), the lightweight, extensible syntax highlighter\n  * The [Smarty](http://smarty.net) templating engine\n  * The [Swift Mailer](http://swiftmailer.org) library\n  * Wordpress theme [LESS](http://lessmade.com/themes/less/) by [Jared Erickson](http://jarederickson.com/) and adapted by [Jacob Roeland](http://jacroe.com)"
 }
