@@ -15,7 +15,7 @@
 
 				<div class="the-content">
 					{{if $post.type == "photo"}}<p><img src="{{$post.photo}}" alt="{{$post.title}}" title="{{$post.title}}" /></p>{{/if}}
-					{{$post.article|markdown}}
+					{{$post.article}}
 				</div><!-- the-content -->
 			</article>
 {{include file="footer.tpl"}}

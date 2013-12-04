@@ -36,3 +36,5 @@ $smarty->setTemplateDir(IGN_PATH."inc/templates/");
 $smarty->setCompileDir(IGN_PATH."inc/templates_c/");
 $smarty->assign("headerCode", ign_action_run("display-header"));
 $smarty->assign("footerCode", ign_action_run("display-footer"));
+
+require_once(IGN_PATH."lib/Parsedown/Parsedown.php");
