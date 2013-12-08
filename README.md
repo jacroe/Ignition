@@ -4,7 +4,7 @@ Ignition
 About
 -----
 
-Ignition is a flat-file blogging system. It uses JSON'd Markdown files and displays them through some Smarty templates. This is a work in progress. 
+Ignition is a flat-file blogging system. It uses [SecondCrack-y](https://github.com/marcoarment/secondcrack#basics) Markdown files and displays them through some Smarty templates. This is a work in progress. 
 
 Acknowledgements
 ----------------
