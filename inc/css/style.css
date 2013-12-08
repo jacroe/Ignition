@@ -492,16 +492,16 @@ header #brand h1 {
   font-size: 1.6rem;
   margin: 0;
   padding: 0;
-  text-transform: uppercase;
 }
 header #brand h1 a {
   color: #565656;
   text-decoration: none;
+  text-transform: uppercase;
 }
 header #brand h1 span {
   font-weight: 200;
   color: #888888;
-  text-transform: lowercase;
+  /* text-transform: lowercase; */
 }
 header nav {
   float: left;
