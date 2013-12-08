@@ -13,7 +13,7 @@
 					</a>
 {{/if}}
 				</h1>
-				<div class="post-meta">{{$post.author}} | <time datetime="{{$post.html5Date}}" title="{{$post.date}}">{{$post.timeAgo}}</time> | {{$post.loc}}{{if $post.tags}} | Tags: {{$post.tags}}{{/if}}</div><!--/post-meta -->
+				<div class="post-meta">{{$post.author}} | <time datetime="{{$post.html5Date}}" title="{{$post.date}}">{{$post.timeAgo}}</time> | {{$post.location}}{{if $post.tags}} | Tags: {{$post.tags}}{{/if}}</div><!--/post-meta -->
 
 				<div class="the-content">
 					{{if $post.type == "photo"}}<p><img src="{{$post.photo}}" alt="{{$post.title}}" title="{{$post.title}}" /></p>{{/if}}

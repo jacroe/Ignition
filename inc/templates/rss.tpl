@@ -11,7 +11,7 @@
 		<link>{{$blog.url}}?id={{$post.slug}}</link>
 		<guid>{{$blog.url}}?id={{$post.slug}}</guid>
 		<pubDate>{{$post.date}}</pubDate>
-		<description><![CDATA[{{$post.article|markdown}}]]></description>
+		<description><![CDATA[{{$post.article}}]]></description>
 	</item>
 	{{/foreach}}
 </channel>

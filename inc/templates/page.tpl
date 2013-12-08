@@ -4,7 +4,7 @@
 						<h1 class="title">{{$page.title}}</h1>
 						
 						<div class="the-content">
-							{{$page.article|markdown}}
+							{{$page.article}}
 						</div><!-- the-content -->
 						
 					</article>

@@ -14,11 +14,10 @@ function ign_posts_get($num = -1, $year = null, $month = null)
 	else
 		$searchString = "*";
 
-	foreach (array_reverse(glob(IGN_PATH."data/posts/$searchString.json")) as $post)
+	foreach (array_reverse(glob(IGN_PATH."data/posts/$searchString.md")) as $post)
 	{
-		$jsonPost = json_decode(file_get_contents($post));
-		$slug = str_replace(IGN_PATH."data/posts/", "", str_replace(".json", "", $post));
-		$posts[] = ign_posts_getPostData($jsonPost, $slug);
+		$slug = str_replace(IGN_PATH."data/posts/", "", str_replace(".md", "", $post));
+		$posts[] = ign_posts_getPostData($slug);
 		if (count($posts) >= $num && $num != -1) break;
 	}
 
@@ -27,10 +26,9 @@ function ign_posts_get($num = -1, $year = null, $month = null)
 
 function ign_posts_getBySlug($slug)
 {
-	if(file_exists(IGN_PATH."data/posts/$slug.json"))
+	if(file_exists(IGN_PATH."data/posts/$slug.md"))
 	{
-		$jsonPost = json_decode(file_get_contents(IGN_PATH."data/posts/$slug.json"));
-		return ign_posts_getPostData($jsonPost, $slug);
+		return ign_posts_getPostData($slug);
 	}
 	else
 		return false;
@@ -53,38 +51,89 @@ function ign_posts_parsePost($article)
 	foreach ($matches[0] as $footnote)
 	{
 		$notes[$i] = $matches[1][$i-1];
-		$newText = "<sup id=\"fnref-$i\"><a href=\"#fn-$i\">$i</a></sup>";
+		$newText = "<sup id=\"fnref-$i\"><a href=\"#fn-$i\" rel=\"footnote\">$i</a></sup>";
 		$article = str_replace($footnote, $newText, $article);
 		$i++;
 	}
 	foreach ($notes as $i=>$note)
-		$footnotes .= '<li id="fn-'.$i.'"><p>'.$note.' <a href="#fnref-'.$i.'">&#8617;</a></p></li>'."\n";
+		$footnotes .= '<li id="fn-'.$i.'"><p>'.$note.' <a href="#fnref-'.$i.'" rev="footnote">&#8617;</a></p></li>'."\n";
 	if ($footnotes)
 		$article .= "\n<hr />\n<ol>\n$footnotes</ol>";
 
 	return $article;
 }
 
-function ign_posts_getPostData($jsonPost, $slug)
+function ign_posts_parseHeaders($rawHeaders)
 {
-	return array("title"=>$jsonPost->title, "author"=>$jsonPost->author, "slug"=>$slug, "date"=>$jsonPost->date, "html5Date"=>ign_html5Time($jsonPost->date), "timeAgo"=>ign_timeAgo($jsonPost->date), "loc"=>$jsonPost->loc, "excerpt"=>$jsonPost->excerpt, "article"=>ign_posts_parsePost($jsonPost->article), "rawArticle"=>$jsonPost->article, "type"=>$jsonPost->type, "tags"=>$jsonPost->tags, "link"=>$jsonPost->link, "photo"=>$jsonPost->photo);
+	$x = explode("\n", $rawHeaders);
+	$processedHeaders["title"] =$x[0];
+	unset($x[0]);
+	foreach($x as $header)
+	{
+		$y = explode(": ", $header);
+		$y[0] = strtolower($y[0]);
+		$y[1] = trim($y[1]);
+		/*if ($y[0] == "tags")
+		{
+			$y[1] = str_replace(", ", ",", $y[1]);
+			$y[1] = explode(",", $y[1]);
+		}
+		*/
+		$processedHeaders[strtolower($y[0])] = $y[1];
+	}
+	return $processedHeaders;
+}
+
+function ign_posts_getPostData($slug)
+{
+	$file = IGN_PATH."data/posts/$slug.md";
+	$rawPostData = file_get_contents($file);
+	$explodedPost = explode("\n\n", $rawPostData);
+	$post = ign_posts_parseHeaders($explodedPost[0]);
+	unset($explodedPost[0]);
+	$rawPost = implode("\n\n", $explodedPost);
+
+	$post["article"] = ign_posts_parsePost($rawPost);
+	$post["rawArticle"] = $rawPost;
+	if (isset($post["published"]))
+	{
+		$post["html5Date"] = ign_html5Time($post["published"]);
+		$post["timeAgo"] = ign_timeAgo($post["published"]);
+		$post["date"] = $post["published"];
+	}
+	$post["slug"] = $slug;
+	return $post;
 }
 
 function ign_posts_publish($title, $author, $publishDate, $loc, $excerpt, $article, $type = "post", $tags = "", $link = "", $photo = "")
 {
-	$jsonNewPost = array("title"=>$title, "author"=>$author, "loc"=>$loc, "excerpt"=>$excerpt, "article"=>$article, "type"=>$type, "tags"=>$tags, "link"=>$link, "photo"=>$photo);
+	$newPost = "$title\n";
+	$newPost .= "Author: $author\n";
+	$newPost .= "Location: $loc\n";
+	$newPost .= "Excerpt: $excerpt\n";
+	$newPost .= "Type: $type\n";
+	if ($tags)
+		$newPost .= "Tags: $tags\n";
+	if ($link)
+		$newPost .= "Link: $link\n";
+	if ($photo)
+		$newPost .= "Photo: $photo\n";
+
 	$strSlug = strtolower(str_replace(array(" ", ".", ",", "!", "\"", "'"), array("-", "", "", "", "", ""), $title));
 	if(time() >= strtotime($publishDate))
 	{
-		$jsonNewPost["date"] = date("r", strtotime($publishDate));
+		$newPost .= "Published: ".date("r", strtotime($publishDate))."\n";
+		$newPost .= "\n$article";
+
 		$strSlug = date("Y-m-d-Hi_", strtotime($publishDate)).$strSlug;
-		file_put_contents(IGN_PATH."data/posts/$strSlug.json", json_format(json_encode($jsonNewPost)));
+		file_put_contents(IGN_PATH."data/posts/$strSlug.md", $newPost);
 		ign_action_run("publish-post", array($strSlug));
 	}
 	else
 	{
-		$jsonNewPost["publish"] = $publishDate;
-		file_put_contents(IGN_PATH."data/drafts/$strSlug.json", json_format(json_encode($jsonNewPost)));
+		$newPost .= "Publish-on: $publishDate\n";
+		$newPost .= "\n$article";
+		file_put_contents(IGN_PATH."data/drafts/$strSlug.md", $newPost);
 	}
 	return $strSlug;
 }
@@ -107,4 +156,4 @@ function ign_posts_publishDrafts()
 	}
 }
 
-ign_action_add("init", "ign_posts_publishDrafts");
+#ign_action_add("init", "ign_posts_publishDrafts");
