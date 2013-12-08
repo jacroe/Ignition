@@ -16,7 +16,7 @@
 <header id="masthead" class="site-header" role="banner">
 	<div class="container">
 		
-		<div class="gravatar"><img src="https://secure.gravatar.com/avatar/8e85a3db943a53e5baa1a2e197d08118/?s=100" alt="Gravatar" /></div><!--/ author -->
+		<div class="gravatar"><img src="https://secure.gravatar.com/avatar/{{$user.email|md5}}/?s=100" alt="Gravatar" /></div><!--/ author -->
 		
 		<div id="brand">
 			<h1 class="site-title"><a href="{{$blog.url}}" title="{{$blog.title}}" rel="home">{{$blog.title}}</a> &mdash; <span>{{$blog.subtitle}}</span></h1>

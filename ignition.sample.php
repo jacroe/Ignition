@@ -11,6 +11,7 @@ define("LANG", "en");
 
 define("USER_NAME", "Alice");
 define("USER_EMAIL", "alice@example.com");
+define("USER_LOCATION", "The Internet");
 
 /* MODULE: Email */
 define("SMTP_SERVER", "mail.bob.com");

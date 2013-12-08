@@ -1,7 +1,7 @@
 <?php
 require_once("ignition.php");
 $blog = array("title"=>IGN_TITLE, "subtitle"=>IGN_SUBTITLE, "url"=>IGN_URL);
-$user = array("name"=>USER_NAME);
+$user = array("name"=>USER_NAME, "email"=>USER_EMAIL, "location"=>USER_LOCATION);
 $smarty->assign("blog", $blog);
 $smarty->assign("user", $user);
 
