@@ -46,7 +46,7 @@ function ign_posts_getByTag($tag)
 	return $taggedPosts;
 }
 
-function ign_posts_parsePost($article)
+function ign_posts_parsePost($article, $slug)
 {
 	$article = Parsedown::instance()->parse($article);
 
@@ -63,12 +63,12 @@ function ign_posts_parsePost($article)
 	foreach ($matches[0] as $footnote)
 	{
 		$notes[$i] = $matches[1][$i-1];
-		$newText = "<sup id=\"fnref-$i\"><a href=\"#fn-$i\" rel=\"footnote\">$i</a></sup>";
+		$newText = "<sup id=\"fnref-$slug-$i\"><a href=\"#fn-$slug-$i\" rel=\"footnote\">$i</a></sup>";
 		$article = str_replace($footnote, $newText, $article);
 		$i++;
 	}
 	foreach ($notes as $i=>$note)
-		$footnotes .= '<li id="fn-'.$i.'"><p>'.$note.' <a href="#fnref-'.$i.'" rev="footnote">&#8617;</a></p></li>'."\n";
+		$footnotes .= '<li id="fn-'.$slug.'-'.$i.'"><p>'.$note.' <a href="#fnref-'.$slug.'-'.$i.'" rev="footnote">&#8617;</a></p></li>'."\n";
 	if ($footnotes)
 		$article .= "\n<hr />\n<ol>\n$footnotes</ol>";
 
@@ -105,7 +105,7 @@ function ign_posts_getPostData($slug)
 	unset($explodedPost[0]);
 	$rawPost = implode("\n\n", $explodedPost);
 
-	$post["article"] = ign_posts_parsePost($rawPost);
+	$post["article"] = ign_posts_parsePost($rawPost, $slug);
 	$post["rawArticle"] = $rawPost;
 	if (isset($post["published"]))
 	{

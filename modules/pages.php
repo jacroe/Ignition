@@ -10,7 +10,7 @@ function ign_pages_getBySlug($slug)
 		unset($explodedPage[0]);
 		$rawPage = implode("\n\n", $explodedPage);
 
-		$page["article"] = ign_posts_parsePost($rawPage);
+		$page["article"] = ign_posts_parsePost($rawPage, $slug);
 		$page["rawArticle"] = $rawPage;
 
 		return $page;
