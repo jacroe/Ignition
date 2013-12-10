@@ -36,7 +36,6 @@ elseif($_GET["id"])
 {
 	if($post = ign_posts_getBySlug($_GET["id"]))
 	{
-		$post["date"] = ign_html5Time($post["date"]);
 		$smarty->assign("post", $post);
 		$smarty->display("post.tpl");
 	}
@@ -45,6 +44,13 @@ elseif($_GET["id"])
 		header('HTTP/1.0 404 Not Found');
 		$smarty->display("404.tpl");
 	}
+}
+elseif($_GET["tag"])
+{
+	$taggedPosts = ign_posts_getByTag($_GET["tag"]);
+	$smarty->assign("posts", $taggedPosts);
+	$smarty->assign("tag", $_GET["tag"]);
+	$smarty->display("tag.tpl");
 }
 else
 {

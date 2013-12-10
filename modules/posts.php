@@ -34,6 +34,18 @@ function ign_posts_getBySlug($slug)
 		return false;
 }
 
+function ign_posts_getByTag($tag)
+{
+	$allPosts = ign_posts_get();
+	foreach($allPosts as $post)
+	{
+		if (in_array($tag, $post["tags"]))
+			$taggedPosts[] = $post;
+	}
+
+	return $taggedPosts;
+}
+
 function ign_posts_parsePost($article)
 {
 	$article = Parsedown::instance()->parse($article);
@@ -73,12 +85,12 @@ function ign_posts_parseHeaders($rawHeaders)
 		$y = explode(": ", $header);
 		$y[0] = strtolower($y[0]);
 		$y[1] = trim($y[1]);
-		/*if ($y[0] == "tags")
+		if ($y[0] == "tags")
 		{
 			$y[1] = str_replace(", ", ",", $y[1]);
 			$y[1] = explode(",", $y[1]);
 		}
-		*/
+		
 		$processedHeaders[strtolower($y[0])] = $y[1];
 	}
 	return $processedHeaders;
